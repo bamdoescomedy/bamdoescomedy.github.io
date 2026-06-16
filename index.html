@@ -1,5 +1,4 @@
-
-</html<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,61 +6,333 @@
   <meta name="description" content="Bam Does Comedy — stand-up comedian based in Fort Wayne, Indiana. Watch clips, see upcoming shows, and book Bam for live performances." />
   <title>Bam Does Comedy</title>
   <style>
-    :root{--bg:#0b0b0b;--panel:#111;--panel2:#161616;--text:#f2f2f2;--muted:#b5b5b5;--accent:#d44735;--accent2:#f05b43;--line:#252525;--max:1080px;--shadow:0 20px 60px rgba(0,0,0,.35);--radius:20px}
+    :root{
+      --bg:#0b0b0b;
+      --panel:#111111;
+      --panel2:#161616;
+      --text:#f2f2f2;
+      --muted:#b5b5b5;
+      --accent:#d44735;
+      --accent2:#f05b43;
+      --line:#252525;
+      --max:1080px;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:20px;
+    }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top, #141414 0, var(--bg) 45%);color:var(--text);line-height:1.5}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:radial-gradient(circle at top, #141414 0, var(--bg) 45%);
+      color:var(--text);
+      line-height:1.5;
+    }
+
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .wrap{width:min(var(--max), calc(100% - 32px));margin:0 auto}
-    .topbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(11,11,11,.82);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
-    .brand{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.95rem}
-    .navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,11,.82);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 0;
+    }
+
+    .brand{
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.95rem;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
     .navlinks a:hover{color:var(--text)}
+
     .hero{padding:48px 0 26px}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
-    .eyebrow{color:#d56b5c;text-transform:uppercase;letter-spacing:.25em;font-size:.8rem;font-weight:700;margin-bottom:14px}
-    h1{font-size:clamp(3rem, 8vw, 6rem);line-height:.86;margin:0 0 16px;text-transform:uppercase;letter-spacing:-.04em}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:#d56b5c;
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      font-size:.8rem;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    h1{
+      font-size:clamp(3rem, 8vw, 6rem);
+      line-height:.86;
+      margin:0 0 16px;
+      text-transform:uppercase;
+      letter-spacing:-.04em;
+    }
+
     h1 .accent{color:var(--accent)}
-    .lede{font-size:1.1rem;color:#dedede;max-width:34rem;margin:0 0 24px}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:800;border:1px solid transparent;transition:.2s ease;min-height:48px}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:var(--shadow)}
-    .btn.primary:hover{transform:translateY(-1px);filter:saturate(1.08)}
-    .btn.secondary{background:transparent;border-color:rgba(255,255,255,.12);color:var(--text)}
-    .btn.secondary:hover{border-color:rgba(255,255,255,.32);background:rgba(255,255,255,.03)}
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero-media{aspect-ratio:4/5;background:#111 url('new-bam-pic.jpg') center/cover no-repeat;position:relative}
-    .hero-media:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));}
-    .hero-caption{padding:18px 18px 20px;border-top:1px solid rgba(255,255,255,.06)}
-    .hero-caption strong{display:block;font-size:1rem;margin-bottom:4px}
-    .hero-caption span{color:var(--muted);font-size:.95rem}
+
+    .lede{
+      font-size:1.1rem;
+      color:#dedede;
+      max-width:34rem;
+      margin:0 0 24px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:.2s ease;
+      min-height:48px;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .btn.primary:hover{
+      transform:translateY(-1px);
+      filter:saturate(1.08);
+    }
+
+    .btn.secondary{
+      background:transparent;
+      border-color:rgba(255,255,255,.12);
+      color:var(--text);
+    }
+
+    .btn.secondary:hover{
+      border-color:rgba(255,255,255,.32);
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-media{
+      aspect-ratio:4/5;
+      background:#111 url('new-bam-pic.jpg') center/cover no-repeat;
+      position:relative;
+    }
+
+    .hero-media:after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));
+    }
+
+    .hero-caption{
+      padding:18px 18px 20px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .hero-caption strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .hero-caption span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
     .section{padding:28px 0}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
-    .section-head h2{margin:0;font-size:1.4rem;letter-spacing:.04em;text-transform:uppercase}
-    .section-head p{margin:0;color:var(--muted);font-size:.95rem}
-    .grid{display:grid;gap:18px}
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:16px;
+      border-bottom:1px solid var(--line);
+      padding-bottom:12px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:1.4rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
     .shows{grid-template-columns:repeat(3,1fr)}
-    .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .show-date{color:#ff7e6d;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;font-weight:700;margin-bottom:8px}
-    .show-title{font-size:1.08rem;font-weight:800;margin:0 0 4px}
-    .show-meta{color:var(--muted);margin:0 0 14px;font-size:.95rem}
-    .tag{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.1);color:#fff;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .show-date{
+      color:#ff7e6d;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .show-title{
+      font-size:1.08rem;
+      font-weight:800;
+      margin:0 0 4px;
+    }
+
+    .show-meta{
+      color:var(--muted);
+      margin:0 0 14px;
+      font-size:.95rem;
+    }
+
+    .tag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.1);
+      color:#fff;
+      font-size:.8rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
     .two-col{grid-template-columns:1fr 1fr}
-    .copy p{margin:0 0 14px;color:#e7e7e7}
-    .list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-    .list li{padding-left:18px;position:relative;color:#e8e8e8}
-    .list li:before{content:'•';position:absolute;left:0;color:var(--accent);font-weight:900}
-    .footer{padding:34px 0 46px;color:var(--muted);font-size:.92rem}
-    .social{display:flex;gap:12px;flex-wrap:wrap}
-    .social a{padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:999px}
-    .social a:hover{border-color:rgba(255,255,255,.28);color:#fff}
+
+    .copy p{
+      margin:0 0 14px;
+      color:#e7e7e7;
+    }
+
+    .list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .list li{
+      padding-left:18px;
+      position:relative;
+      color:#e8e8e8;
+    }
+
+    .list li:before{
+      content:'•';
+      position:absolute;
+      left:0;
+      color:var(--accent);
+      font-weight:900;
+    }
+
+    .coming-soon{
+      text-align:center;
+      padding:34px 18px;
+    }
+
+    .coming-soon h3{
+      margin:0 0 10px;
+      font-size:1.4rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .coming-soon p{
+      margin:0 auto;
+      max-width:34rem;
+      color:var(--muted);
+    }
+
+    .footer{
+      padding:34px 0 46px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .social{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .social a{
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:999px;
+    }
+
+    .social a:hover{
+      border-color:rgba(255,255,255,.28);
+      color:#fff;
+    }
+
     @media (max-width: 860px){
       .hero-grid,.shows,.two-col{grid-template-columns:1fr}
       .hero{padding-top:28px}
       h1{font-size:clamp(2.8rem, 14vw, 5rem)}
       .nav{flex-direction:column;align-items:flex-start}
+      .section-head{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
@@ -91,6 +362,7 @@
           </div>
           <p style="color:var(--muted);margin:0;max-width:34rem">Fort Wayne's nightside news anchor energy, with real-stage timing and material that lands fast.</p>
         </div>
+
         <div class="hero-card">
           <div class="hero-media" aria-label="Bam performing stand-up"></div>
           <div class="hero-caption">
@@ -131,23 +403,12 @@
     <section class="section wrap" id="clips">
       <div class="section-head">
         <h2>Clips</h2>
-        <p>Show the jokes before you ask for the booking.</p>
+        <p>Coming soon.</p>
       </div>
-      <div class="grid two-col">
-        <article class="card copy">
-          <p><strong>Clip 1:</strong> a fast joke about family, work, or local life.</p>
-          <p><strong>Clip 2:</strong> a darker, sharper bit that shows range.</p>
-          <p><strong>Clip 3:</strong> a crowd-work moment or quick reaction clip.</p>
-          <p><strong>Clip 4:</strong> a clean, highly shareable punchline.</p>
-        </article>
-        <article class="card copy">
-          <p>Best practice: post the same clip in TikTok and Reels, then pin the top performer on both platforms. Use subtitles, keep the first line immediate, and end with a soft CTA like “follow for more.”</p>
-          <ul class="list">
-            <li>Keep videos 15 to 45 seconds.</li>
-            <li>Put the punchline early when possible.</li>
-            <li>Use one recurring series name.</li>
-          </ul>
-        </article>
+
+      <div class="card coming-soon">
+        <h3>Clips coming soon</h3>
+        <p>I’ll be adding performance videos and short-form clips this week. Check back soon for featured sets, crowd work, and the best Bam moments.</p>
       </div>
     </section>
 
@@ -196,9 +457,4 @@
     © 2026 Bam Does Comedy. All rights reserved.
   </footer>
 </body>
-</html>>}
-
-   
-
- 
-
+</html>
