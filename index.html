@@ -10,7 +10,6 @@
         :root {
             --primary: #c8102e;
             --dark: #121212;
-            --light: #f8f8f8;
         }
        
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,26 +33,18 @@
             border-bottom: 1px solid #333;
         }
        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: white;
-            text-decoration: none;
-        }
-       
+        .logo { font-size: 1.8rem; font-weight: 900; color: white; text-decoration: none; }
         nav a {
             color: #ddd;
             text-decoration: none;
             margin-left: 2rem;
             font-weight: 500;
-            transition: color 0.3s;
         }
-       
         nav a:hover { color: var(--primary); }
-       
+
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://files.oaiusercontent.com/file-...') center/cover no-repeat; /* Enhanced & Cropped Hero Image */
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('hero.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -75,11 +66,7 @@
             text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
        
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            color: #ccc;
-        }
+        .hero p { font-size: 1.4rem; margin-bottom: 2rem; color: #ccc; }
        
         .btn {
             display: inline-block;
@@ -89,15 +76,14 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
             margin: 0 10px;
+            transition: all 0.3s;
         }
-       
         .btn:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(200,16,46,0.4);
         }
-       
+
         section { padding: 100px 5%; }
         h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; color: white; }
        
@@ -109,17 +95,15 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-       
         .show-card {
             background: #1a1a1a;
             border-radius: 12px;
             padding: 2rem;
             transition: transform 0.3s;
         }
-       
         .show-card:hover { transform: translateY(-10px); }
         .date { font-size: 1.1rem; color: var(--primary); font-weight: 700; }
-       
+
         .clips { background: #0a0a0a; }
         .clip-grid {
             display: grid;
@@ -128,13 +112,11 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-       
         .clip {
             background: #1a1a1a;
             border-radius: 12px;
             overflow: hidden;
         }
-       
         .clip-placeholder {
             height: 200px;
             background: linear-gradient(45deg, #222, #444);
@@ -142,33 +124,25 @@
             align-items: center;
             justify-content: center;
             color: #666;
-            font-size: 1.1rem;
+            font-size: 3rem;
         }
-       
+
         .about { background: #111; }
-        .bio {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-       
+        .bio { max-width: 800px; margin: 0 auto; font-size: 1.2rem; text-align: center; }
+
         footer {
             background: #0a0a0a;
             padding: 4rem 5% 2rem;
             text-align: center;
             border-top: 1px solid #333;
         }
-       
         .social-links a {
             color: #ddd;
             font-size: 1.8rem;
             margin: 0 15px;
-            transition: color 0.3s;
         }
-       
         .social-links a:hover { color: var(--primary); }
-       
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             nav a { margin-left: 1rem; font-size: 0.95rem; }
@@ -176,7 +150,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <header>
         <a href="#" class="logo">BAM</a>
         <nav>
@@ -187,7 +160,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>BAM DOES COMEDY</h1>
@@ -198,7 +170,6 @@
         </div>
     </section>
 
-    <!-- Upcoming Shows -->
     <section id="shows" class="shows">
         <h2>Upcoming Shows</h2>
         <div class="show-grid">
@@ -208,14 +179,12 @@
                 <p>1833 N. Wells, Fort Wayne, IN</p>
                 <p><strong>Open Mic</strong></p>
             </div>
-           
             <div class="show-card">
                 <div class="date">SAT JUN 20 • 7:00 PM</div>
                 <h3>Fort Wayne Comedy Club</h3>
                 <p>New Haven, IN</p>
                 <p><strong>Opening for Matt Andrew</strong></p>
             </div>
-           
             <div class="show-card">
                 <div class="date">WED JUN 24 • 7:00 PM</div>
                 <h3>Summit City Comedy Club</h3>
@@ -225,14 +194,11 @@
         </div>
     </section>
 
-    <!-- Clips -->
     <section id="clips" class="clips">
-        <h2>Clips &amp; Sets</h2>
+        <h2>Clips & Sets</h2>
         <div class="clip-grid">
             <div class="clip">
-                <div class="clip-placeholder">
-                    <i class="fas fa-play-circle" style="font-size: 3rem;"></i>
-                </div>
+                <div class="clip-placeholder"><i class="fas fa-play-circle"></i></div>
                 <div style="padding: 1.5rem;">
                     <h3>Featured Set</h3>
                     <p>Coming soon — full club sets and killer crowd work.</p>
@@ -241,13 +207,11 @@
         </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="about">
         <h2>About Bam</h2>
         <div class="bio">
             <p>Brian Anthony Miller performs as <strong>Bam</strong> — a Fort Wayne-based stand-up comic known for dark, sharp, and highly observant material. With the polished delivery of a nightside news anchor and the grit of open-mic stages, Bam delivers fast punchlines, dry commentary, and local flavor that connects.</p>
             <p>Available for clubs, features, showcases, private events, and corporate gigs.</p>
-           
             <div style="margin-top: 3rem; font-size: 1.1rem;">
                 <strong>Based in:</strong> Fort Wayne, Indiana<br>
                 <strong>Style:</strong> Observational • Dark • Quick-witted<br>
@@ -256,7 +220,6 @@
         </div>
     </section>
 
-    <!-- Contact / Booking -->
     <section id="contact" style="background: #0a0a0a; text-align: center;">
         <h2>Book Bam</h2>
         <p style="font-size: 1.4rem; max-width: 600px; margin: 2rem auto;">
@@ -266,7 +229,6 @@
         <p style="margin-top: 2rem; color: #888;">bamdoescomedy@gmail.com</p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
