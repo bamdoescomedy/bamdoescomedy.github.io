@@ -1,460 +1,290 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Bam Does Comedy — stand-up comedian based in Fort Wayne, Indiana. Watch clips, see upcoming shows, and book Bam for live performances." />
-  <title>Bam Does Comedy</title>
-  <style>
-    :root{
-      --bg:#0b0b0b;
-      --panel:#111111;
-      --panel2:#161616;
-      --text:#f2f2f2;
-      --muted:#b5b5b5;
-      --accent:#d44735;
-      --accent2:#f05b43;
-      --line:#252525;
-      --max:1080px;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:20px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:radial-gradient(circle at top, #141414 0, var(--bg) 45%);
-      color:var(--text);
-      line-height:1.5;
-    }
-
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    .wrap{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(10px);
-      background:rgba(11,11,11,.82);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:16px 0;
-    }
-
-    .brand{
-      font-weight:900;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:.95rem;
-    }
-
-    .navlinks{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .navlinks a:hover{color:var(--text)}
-
-    .hero{padding:48px 0 26px}
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .eyebrow{
-      color:#d56b5c;
-      text-transform:uppercase;
-      letter-spacing:.25em;
-      font-size:.8rem;
-      font-weight:700;
-      margin-bottom:14px;
-    }
-
-    h1{
-      font-size:clamp(3rem, 8vw, 6rem);
-      line-height:.86;
-      margin:0 0 16px;
-      text-transform:uppercase;
-      letter-spacing:-.04em;
-    }
-
-    h1 .accent{color:var(--accent)}
-
-    .lede{
-      font-size:1.1rem;
-      color:#dedede;
-      max-width:34rem;
-      margin:0 0 24px;
-    }
-
-    .cta-row{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 20px;
-      border-radius:999px;
-      font-weight:800;
-      border:1px solid transparent;
-      transition:.2s ease;
-      min-height:48px;
-    }
-
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#fff;
-      box-shadow:var(--shadow);
-    }
-
-    .btn.primary:hover{
-      transform:translateY(-1px);
-      filter:saturate(1.08);
-    }
-
-    .btn.secondary{
-      background:transparent;
-      border-color:rgba(255,255,255,.12);
-      color:var(--text);
-    }
-
-    .btn.secondary:hover{
-      border-color:rgba(255,255,255,.32);
-      background:rgba(255,255,255,.03);
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-media{
-      aspect-ratio:4/5;
-      background:#111 url('new-bam-pic.jpg') center/cover no-repeat;
-      position:relative;
-    }
-
-    .hero-media:after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));
-    }
-
-    .hero-caption{
-      padding:18px 18px 20px;
-      border-top:1px solid rgba(255,255,255,.06);
-    }
-
-    .hero-caption strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:4px;
-    }
-
-    .hero-caption span{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .section{padding:28px 0}
-
-    .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:16px;
-      border-bottom:1px solid var(--line);
-      padding-bottom:12px;
-    }
-
-    .section-head h2{
-      margin:0;
-      font-size:1.4rem;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .grid{
-      display:grid;
-      gap:18px;
-    }
-
-    .shows{grid-template-columns:repeat(3,1fr)}
-
-    .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-
-    .show-date{
-      color:#ff7e6d;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.82rem;
-      font-weight:700;
-      margin-bottom:8px;
-    }
-
-    .show-title{
-      font-size:1.08rem;
-      font-weight:800;
-      margin:0 0 4px;
-    }
-
-    .show-meta{
-      color:var(--muted);
-      margin:0 0 14px;
-      font-size:.95rem;
-    }
-
-    .tag{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.1);
-      color:#fff;
-      font-size:.8rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .two-col{grid-template-columns:1fr 1fr}
-
-    .copy p{
-      margin:0 0 14px;
-      color:#e7e7e7;
-    }
-
-    .list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:12px;
-    }
-
-    .list li{
-      padding-left:18px;
-      position:relative;
-      color:#e8e8e8;
-    }
-
-    .list li:before{
-      content:'•';
-      position:absolute;
-      left:0;
-      color:var(--accent);
-      font-weight:900;
-    }
-
-    .coming-soon{
-      text-align:center;
-      padding:34px 18px;
-    }
-
-    .coming-soon h3{
-      margin:0 0 10px;
-      font-size:1.4rem;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .coming-soon p{
-      margin:0 auto;
-      max-width:34rem;
-      color:var(--muted);
-    }
-
-    .footer{
-      padding:34px 0 46px;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .social{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .social a{
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:999px;
-    }
-
-    .social a:hover{
-      border-color:rgba(255,255,255,.28);
-      color:#fff;
-    }
-
-    @media (max-width: 860px){
-      .hero-grid,.shows,.two-col{grid-template-columns:1fr}
-      .hero{padding-top:28px}
-      h1{font-size:clamp(2.8rem, 14vw, 5rem)}
-      .nav{flex-direction:column;align-items:flex-start}
-      .section-head{flex-direction:column;align-items:flex-start}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bam Does Comedy | Brian Anthony Miller</title>
+    <meta name="description" content="Dark, sharp stand-up comedy from Bam (Brian Anthony Miller) — Fort Wayne, Indiana.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #c8102e;
+            --dark: #121212;
+            --light: #f8f8f8;
+        }
+       
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ddd;
+            line-height: 1.6;
+        }
+       
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+       
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+        }
+       
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+       
+        nav a:hover { color: var(--primary); }
+       
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://files.oaiusercontent.com/file-...') center/cover no-repeat; /* Enhanced & Cropped Hero Image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+       
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+       
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+       
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+       
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+       
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(200,16,46,0.4);
+        }
+       
+        section { padding: 100px 5%; }
+        h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; color: white; }
+       
+        .shows { background: #111; }
+        .show-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+       
+        .show-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+       
+        .show-card:hover { transform: translateY(-10px); }
+        .date { font-size: 1.1rem; color: var(--primary); font-weight: 700; }
+       
+        .clips { background: #0a0a0a; }
+        .clip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+       
+        .clip {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+       
+        .clip-placeholder {
+            height: 200px;
+            background: linear-gradient(45deg, #222, #444);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+       
+        .about { background: #111; }
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+       
+        footer {
+            background: #0a0a0a;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+       
+        .social-links a {
+            color: #ddd;
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+       
+        .social-links a:hover { color: var(--primary); }
+       
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            nav a { margin-left: 1rem; font-size: 0.95rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="wrap nav">
-      <div class="brand">Bam Does Comedy</div>
-      <div class="navlinks">
-        <a href="#shows">Shows</a>
-        <a href="#clips">Clips</a>
-        <a href="#about">About</a>
-        <a href="#book">Book</a>
-      </div>
-    </div>
-  </div>
+    <!-- Navigation -->
+    <header>
+        <a href="#" class="logo">BAM</a>
+        <nav>
+            <a href="#shows">Shows</a>
+            <a href="#clips">Clips</a>
+            <a href="#about">About</a>
+            <a href="#contact">Book</a>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero wrap">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">Stand-up comedy — Fort Wayne, IN</div>
-          <h1>Bam <span class="accent">Does</span><br/>Comedy</h1>
-          <p class="lede">Dark, sharp, and weirdly precise stand-up from Brian Anthony Miller — built for clubs, open mics, features, showcases, and private events.</p>
-          <div class="cta-row" id="book">
-            <a class="btn primary" href="mailto:bamdoescomedy@gmail.com">Book Bam</a>
-            <a class="btn secondary" href="#clips">Watch Clips</a>
-          </div>
-          <p style="color:var(--muted);margin:0;max-width:34rem">Fort Wayne's nightside news anchor energy, with real-stage timing and material that lands fast.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>BAM DOES COMEDY</h1>
+            <p>Dark. Sharp. Fort Wayne.</p>
+            <p>Brian Anthony Miller brings nightside news anchor energy to the stage.</p>
+            <a href="#shows" class="btn">See Upcoming Shows</a>
+            <a href="#contact" class="btn" style="background: transparent; border: 2px solid white;">Book Bam</a>
         </div>
-
-        <div class="hero-card">
-          <div class="hero-media" aria-label="Bam performing stand-up"></div>
-          <div class="hero-caption">
-            <strong>Live set highlight</strong>
-            <span>This photo should be the homepage hero image.</span>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="section wrap" id="shows">
-      <div class="section-head">
+    <!-- Upcoming Shows -->
+    <section id="shows" class="shows">
         <h2>Upcoming Shows</h2>
-        <p>Keep this updated weekly.</p>
-      </div>
-      <div class="grid shows">
-        <article class="card">
-          <div class="show-date">Wed Jun 24 · 7:00 PM</div>
-          <div class="show-title">Summit City Comedy Club</div>
-          <p class="show-meta">Open Mic — Fort Wayne, IN</p>
-          <span class="tag">Open Mic</span>
-        </article>
-        <article class="card">
-          <div class="show-date">Sat Jun 20 · 7:00 PM</div>
-          <div class="show-title">Fort Wayne Comedy Club</div>
-          <p class="show-meta">Opening for Matt Andrew · New Haven, IN</p>
-          <span class="tag">Booked Show</span>
-        </article>
-        <article class="card">
-          <div class="show-date">Thu Jun 18</div>
-          <div class="show-title">Laughing Hyena at Draft Taproom & Coffee</div>
-          <p class="show-meta">1833 N. Wells · Fort Wayne, IN</p>
-          <span class="tag">Open Mic</span>
-        </article>
-      </div>
+        <div class="show-grid">
+            <div class="show-card">
+                <div class="date">THU JUN 18 • 7:00 PM</div>
+                <h3>Laughing Hyena at Draft Taproom & Coffee</h3>
+                <p>1833 N. Wells, Fort Wayne, IN</p>
+                <p><strong>Open Mic</strong></p>
+            </div>
+           
+            <div class="show-card">
+                <div class="date">SAT JUN 20 • 7:00 PM</div>
+                <h3>Fort Wayne Comedy Club</h3>
+                <p>New Haven, IN</p>
+                <p><strong>Opening for Matt Andrew</strong></p>
+            </div>
+           
+            <div class="show-card">
+                <div class="date">WED JUN 24 • 7:00 PM</div>
+                <h3>Summit City Comedy Club</h3>
+                <p>Fort Wayne, IN</p>
+                <p><strong>Open Mic</strong></p>
+            </div>
+        </div>
     </section>
 
-    <section class="section wrap" id="clips">
-      <div class="section-head">
-        <h2>Clips</h2>
-        <p>Coming soon.</p>
-      </div>
-
-      <div class="card coming-soon">
-        <h3>Clips coming soon</h3>
-        <p>I’ll be adding performance videos and short-form clips this week. Check back soon for featured sets, crowd work, and the best Bam moments.</p>
-      </div>
+    <!-- Clips -->
+    <section id="clips" class="clips">
+        <h2>Clips &amp; Sets</h2>
+        <div class="clip-grid">
+            <div class="clip">
+                <div class="clip-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem;"></i>
+                </div>
+                <div style="padding: 1.5rem;">
+                    <h3>Featured Set</h3>
+                    <p>Coming soon — full club sets and killer crowd work.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="section wrap" id="about">
-      <div class="section-head">
+    <!-- About -->
+    <section id="about" class="about">
         <h2>About Bam</h2>
-        <p>A short bio that sells the voice quickly.</p>
-      </div>
-      <div class="grid two-col">
-        <article class="card copy">
-          <p>Brian Anthony Miller performs as Bam, a Fort Wayne-based stand-up comic with a dark, sharp, and highly observant style. His act mixes newsroom polish with open-mic grit, balancing dry commentary, local detail, and fast punchlines.</p>
-          <p>He is available for clubs, features, showcases, private events, and online collaborations.</p>
-        </article>
-        <article class="card copy">
-          <p><strong>Quick facts</strong></p>
-          <ul class="list">
-            <li>Based in Fort Wayne, Indiana.</li>
-            <li>Stand-up comedy and crowd work.</li>
-            <li>Available for bookings and media.</li>
-            <li>Built for clips, stage sets, and social content.</li>
-          </ul>
-        </article>
-      </div>
+        <div class="bio">
+            <p>Brian Anthony Miller performs as <strong>Bam</strong> — a Fort Wayne-based stand-up comic known for dark, sharp, and highly observant material. With the polished delivery of a nightside news anchor and the grit of open-mic stages, Bam delivers fast punchlines, dry commentary, and local flavor that connects.</p>
+            <p>Available for clubs, features, showcases, private events, and corporate gigs.</p>
+           
+            <div style="margin-top: 3rem; font-size: 1.1rem;">
+                <strong>Based in:</strong> Fort Wayne, Indiana<br>
+                <strong>Style:</strong> Observational • Dark • Quick-witted<br>
+                <strong>Available for:</strong> Headlining • Features • Private Events
+            </div>
+        </div>
     </section>
 
-    <section class="section wrap">
-      <div class="section-head">
-        <h2>Social</h2>
-        <p>Make the website and platforms work together.</p>
-      </div>
-      <div class="social">
-        <a href="https://www.instagram.com/bamdoescomedy/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@bamdoescomedy" target="_blank" rel="noreferrer">TikTok</a>
-        <a href="mailto:bamdoescomedy@gmail.com">Email</a>
-      </div>
+    <!-- Contact / Booking -->
+    <section id="contact" style="background: #0a0a0a; text-align: center;">
+        <h2>Book Bam</h2>
+        <p style="font-size: 1.4rem; max-width: 600px; margin: 2rem auto;">
+            Ready to bring the laughs? Reach out for bookings, private events, or collaborations.
+        </p>
+        <a href="mailto:bamdoescomedy@gmail.com" class="btn" style="font-size: 1.3rem; padding: 18px 48px;">EMAIL FOR BOOKING</a>
+        <p style="margin-top: 2rem; color: #888;">bamdoescomedy@gmail.com</p>
     </section>
 
-    <section class="section wrap">
-      <div class="card copy">
-        <p><strong>Booking line:</strong> Clean, punchy, and ready for stage time. Add your booking email, phone number, and a downloadable one-sheet here.</p>
-      </div>
-    </section>
-  </main>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="margin-top: 2rem; color: #555;">© 2026 Bam Does Comedy • Fort Wayne, IN</p>
+    </footer>
 
-  <footer class="footer wrap">
-    © 2026 Bam Does Comedy. All rights reserved.
-  </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
