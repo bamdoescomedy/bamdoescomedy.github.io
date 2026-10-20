@@ -383,6 +383,23 @@
     #newsletter-form button:hover { background: #a93226; }
     #newsletter-form button:disabled { opacity: 0.6; cursor: default; }
     #newsletter-note { margin-top: 12px; color: var(--gray); font-size: 0.9rem; }
+    .video-wrap { max-width: 900px; margin: 0 auto; }
+    .video-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid #222;
+      display: block;
+      background: #000;
+    }
+    .video-cap {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 14px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      font-style: italic;
+    }
     footer { text-align: center; padding: 24px 32px 32px; font-size: 0.75rem; color: #444; }
     @media (max-width: 600px) {
       nav ul { gap: 16px; }
@@ -397,6 +414,7 @@
     <ul>
       <li><a href="#shows">Shows</a></li>
       <li><a href="#photos">Photos</a></li>
+      <li><a href="#video">Video</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Booking</a></li>
       <li><a href="https://www.fortwaynecomedyclub.com" target="_blank" rel="noopener" style="color:var(--red);border:1px solid var(--red);padding:8px 16px;border-radius:3px;">FW Comedy Club</a></li>
@@ -547,6 +565,14 @@
         <figure><img src="photos/personal/christmas-tree.jpg" alt="Bam lifting his kid to top the Christmas tree" loading="lazy" /><figcaption>Christmas</figcaption></figure>
         <figure><img src="photos/personal/like-father.jpg" alt="Bam and his baby both yawning" loading="lazy" /><figcaption>Like Father</figcaption></figure>
     </div>
+  </div>
+
+  <div class="section-outer" id="video">
+    <p class="section-label">Video</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/z6BD5HFDOfE" title="Bam Does Comedy — poker game bit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="video-cap">"I was only 12 when I lost my dad... in a poker game."</p>
   </div>
 
   <div class="section-outer" id="newsletter">
