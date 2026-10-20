@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bam Does Comedy</title>
+  <title>Bam Does Comedy | Brian Anthony Miller — Fort Wayne Stand-Up Comedian</title>
+  <meta name="description" content="Brian Anthony Miller performs as BAM — a Fort Wayne, Indiana stand-up comic. Dark, sharp, highly observant comedy. Upcoming shows, photos, and booking." />
+  <meta property="og:title" content="Bam Does Comedy" />
+  <meta property="og:description" content="Brian Anthony Miller performs as BAM — Fort Wayne stand-up comedy. Dark. Sharp. Fort Wayne." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bamdoescomedy.com/" />
+  <meta property="og:image" content="https://bamdoescomedy.com/new%20bam%20pic.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0d0d'/%3E%3Crect x='5' y='5' width='54' height='54' fill='none' stroke='%23c0392b' stroke-width='4'/%3E%3Ctext x='32' y='43' font-family='Arial Black, sans-serif' font-size='23' fill='%23f0ece3' text-anchor='middle'%3EBAM%3C/text%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,6 +86,37 @@
       font-size: clamp(2.8rem, 8vw, 5rem);
       line-height: 0.95;
       letter-spacing: 2px;
+    }
+    .logo-box {
+      display: inline-block;
+      border: 3px solid var(--red);
+      padding: 16px 28px 12px;
+      margin-bottom: 28px;
+      text-align: center;
+      background: var(--black);
+    }
+    .logo-bam {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 4.5rem);
+      line-height: 0.9;
+      letter-spacing: 8px;
+      color: var(--offwhite);
+    }
+    .logo-sub {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 9px;
+      color: var(--red);
+      margin-top: 8px;
+    }
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 4px;
+      color: var(--offwhite);
+      margin-bottom: 4px;
     }
     #hero-text .tagline {
       margin-top: 20px;
@@ -319,6 +357,32 @@
       color: var(--gray);
       text-align: center;
     }
+    .newsletter-blurb { color: #aaa; margin-bottom: 20px; max-width: 520px; }
+    #newsletter-form { display: flex; gap: 12px; max-width: 520px; flex-wrap: wrap; }
+    #newsletter-form input[type="email"] {
+      flex: 1 1 240px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      background: #141414;
+      border: 1px solid #333;
+      color: var(--offwhite);
+      font-family: 'Inter', sans-serif;
+    }
+    #newsletter-form button {
+      padding: 14px 28px;
+      background: var(--red);
+      color: var(--offwhite);
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    #newsletter-form button:hover { background: #a93226; }
+    #newsletter-form button:disabled { opacity: 0.6; cursor: default; }
+    #newsletter-note { margin-top: 12px; color: var(--gray); font-size: 0.9rem; }
     footer { text-align: center; padding: 24px 32px 32px; font-size: 0.75rem; color: #444; }
     @media (max-width: 600px) {
       nav ul { gap: 16px; }
@@ -345,7 +409,8 @@
 
   <div id="hero-text">
     <p class="eyebrow">Stand-Up Comedy — Fort Wayne, IN</p>
-    <h1>Bam Does Comedy</h1>
+    <div class="logo-box"><span class="logo-bam">BAM</span><span class="logo-sub">Does Comedy</span></div>
+    <h1 class="hero-name">Brian Anthony Miller</h1>
     <p class="tagline">Dark. Sharp. Fort Wayne.</p>
     <a class="cta" href="#contact">Book Bam</a>
   </div>
@@ -484,6 +549,16 @@
     </div>
   </div>
 
+  <div class="section-outer" id="newsletter">
+    <p class="section-label">Stay in the loop</p>
+    <p class="newsletter-blurb">Show announcements and ticket links — no spam, just the gigs worth leaving the house for.</p>
+    <form id="newsletter-form">
+      <input type="email" id="nlEmail" name="email" placeholder="your@email.com" required />
+      <button type="submit" id="nlBtn">Sign me up</button>
+    </form>
+    <p id="newsletter-note"></p>
+  </div>
+
   <div class="section-outer" id="contact">
     <p class="section-label">Booking & Contact</p>
     <div class="contact-wrap">
@@ -527,6 +602,33 @@
   <footer>&copy; 2026 Bam Does Comedy. All rights reserved.</footer>
 
   <script>
+    // Newsletter signup (Formspree)
+    document.getElementById('newsletter-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var email = document.getElementById('nlEmail').value.trim();
+      var btn = document.getElementById('nlBtn');
+      var note = document.getElementById('newsletter-note');
+      if (!email) return;
+      btn.textContent = 'Signing up...';
+      btn.disabled = true;
+      try {
+        var res = await fetch('https://formspree.io/f/mrpbgder', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ _subject: 'New newsletter signup — bamdoescomedy.com', 'Type': 'Newsletter', 'Email': email })
+        });
+        if (res.ok) {
+          note.textContent = "You're in — see you at a show.";
+          btn.textContent = 'Signed up ✓';
+          document.getElementById('nlEmail').value = '';
+        } else { throw new Error('failed'); }
+      } catch (err) {
+        note.textContent = 'Something went wrong — try again.';
+        btn.textContent = 'Sign me up';
+        btn.disabled = false;
+      }
+    });
+
     // Photo lightbox
     (function () {
       var lb = document.getElementById('lightbox');
