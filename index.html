@@ -383,7 +383,13 @@
     #newsletter-form button:hover { background: #a93226; }
     #newsletter-form button:disabled { opacity: 0.6; cursor: default; }
     #newsletter-note { margin-top: 12px; color: var(--gray); font-size: 0.9rem; }
-    .video-wrap { max-width: 900px; margin: 0 auto; }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
     .video-wrap iframe {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -395,11 +401,9 @@
       color: var(--gray);
       font-size: 0.9rem;
       margin-top: 14px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
       font-style: italic;
     }
+    @media (max-width: 800px) { .video-grid { grid-template-columns: 1fr; } }
     footer { text-align: center; padding: 24px 32px 32px; font-size: 0.75rem; color: #444; }
     @media (max-width: 600px) {
       nav ul { gap: 16px; }
@@ -569,10 +573,20 @@
 
   <div class="section-outer" id="video">
     <p class="section-label">Video</p>
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/z6BD5HFDOfE" title="Bam Does Comedy — poker game bit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-grid">
+      <figure class="video-item">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/z6BD5HFDOfE" title="Bam Does Comedy — poker game bit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption class="video-cap">"I was only 12 when I lost my dad... in a poker game."</figcaption>
+      </figure>
+      <figure class="video-item">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/HAYxY43_zRo" title="Bam Does Comedy — raspberry gummies bit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption class="video-cap">"Raspberry gummies have a way of making comedy shows more fun."</figcaption>
+      </figure>
     </div>
-    <p class="video-cap">"I was only 12 when I lost my dad... in a poker game."</p>
   </div>
 
   <div class="section-outer" id="newsletter">
