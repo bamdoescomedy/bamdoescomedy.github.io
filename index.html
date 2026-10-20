@@ -232,6 +232,93 @@
       padding-bottom: 2px;
     }
     .socials a:hover { color: var(--offwhite); border-color: var(--offwhite); text-decoration: none; }
+
+    .gallery-wrap { max-width: 1100px; margin: 0 auto; }
+    .photo-grid { columns: 3; column-gap: 16px; }
+    .photo-grid figure {
+      break-inside: avoid;
+      margin: 0 0 16px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #222;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #141414;
+    }
+    .photo-grid img { width: 100%; display: block; }
+    .photo-grid figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 24px 12px 10px;
+      font-size: 0.8rem;
+      color: var(--offwhite);
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .photo-grid figure:hover figcaption { opacity: 1; }
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+    #lightbox .lb-cap {
+      position: absolute;
+      bottom: 24px;
+      left: 0; right: 0;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 800px) { .photo-grid { columns: 2; } }
+    @media (max-width: 500px) { .photo-grid { columns: 2; column-gap: 10px; } .photo-grid figure { margin-bottom: 10px; } }
+    .offstage-strip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .offstage-strip figure {
+      flex: 0 0 auto;
+      width: 220px;
+      scroll-snap-align: start;
+      margin: 0;
+      border: 1px solid #222;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #141414;
+      cursor: pointer;
+    }
+    .offstage-strip img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .offstage-strip figcaption {
+      padding: 10px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-align: center;
+    }
     footer { text-align: center; padding: 24px 32px 32px; font-size: 0.75rem; color: #444; }
     @media (max-width: 600px) {
       nav ul { gap: 16px; }
@@ -245,6 +332,7 @@
     <span class="logo">Bam Does Comedy</span>
     <ul>
       <li><a href="#shows">Shows</a></li>
+      <li><a href="#photos">Photos</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Booking</a></li>
       <li><a href="https://www.fortwaynecomedyclub.com" target="_blank" rel="noopener" style="color:var(--red);border:1px solid var(--red);padding:8px 16px;border-radius:3px;">FW Comedy Club</a></li>
@@ -288,6 +376,14 @@
           <span>Fort Wayne, IN</span>
         </div>
         <span class="show-tag">Open Mic</span>
+      </li>
+      <li>
+        <span class="show-date">FRI NOV 6</span>
+        <div class="show-info">
+          <strong>The Fairfield — Comedy Contest Showcase</strong>
+          <span>Top-3 finalist • 1510 Fairfield Ave, Fort Wayne, IN • Doors 7 PM, Show 8 PM • <a href="https://thefairfieldfw.com/" target="_blank" rel="noopener">thefairfieldfw.com</a></span>
+        </div>
+        <span class="show-tag">Special Event</span>
       </li>
       <li>
         <span class="show-date">SAT NOV 7</span>
@@ -346,6 +442,48 @@
     </div>
   </div>
 
+  <div class="section-outer" id="photos">
+    <p class="section-label">Photos</p>
+    <div class="gallery-wrap">
+      <div class="photo-grid">
+        <figure><img src="photos/on-stage-mic.jpg" alt="Bam on stage with mic in hand" loading="lazy" /><figcaption>On stage — mic in hand</figcaption></figure>
+        <figure><img src="photos/barleycorns-stage.jpg" alt="Bam performing on stage with a red curtain" loading="lazy" /><figcaption>Working the red curtain</figcaption></figure>
+        <figure><img src="photos/club-selfie.jpg" alt="Bam at the comedy club with the audience behind him" loading="lazy" /><figcaption>At the club before showtime</figcaption></figure>
+        <figure><img src="photos/lineup-fort-wayne.jpg" alt="Bam post-show with the lineup at Fort Wayne Comedy Club" loading="lazy" /><figcaption>Post-show with the lineup — Fort Wayne Comedy Club</figcaption></figure>
+        <figure><img src="photos/summit-city-night.jpg" alt="Bam selfie at Summit City Comedy Club" loading="lazy" /><figcaption>Summit City Comedy Club</figcaption></figure>
+        <figure><img src="photos/green-room.jpg" alt="Bam backstage with another comic" loading="lazy" /><figcaption>Green room hangs</figcaption></figure>
+        <figure><img src="photos/loony-bin-cake.jpg" alt="Bam with the lineup holding a cake at The Loony Bin" loading="lazy" /><figcaption>The Loony Bin — they got him a cake</figcaption></figure>
+        <figure><img src="photos/radio-studio.jpg" alt="Bam in a radio studio with headphones" loading="lazy" /><figcaption>In the studio</figcaption></figure>
+        <figure><img src="photos/loony-bin-stage.jpg" alt="Bam on stage at The Loony Bin" loading="lazy" /><figcaption>The Loony Bin</figcaption></figure>
+        <figure><img src="photos/fun-shop-stage.jpg" alt="Bam performing with arms raised at the Fun Shop" loading="lazy" /><figcaption>Full energy at the Fun Shop</figcaption></figure>
+        <figure><img src="photos/blue-tee-stage.jpg" alt="Bam working the room on stage" loading="lazy" /><figcaption>Working the room</figcaption></figure>
+        <figure><img src="photos/brewery-set.jpg" alt="Bam performing a brewery gig" loading="lazy" /><figcaption>Brewery gig</figcaption></figure>
+        <figure><img src="photos/coffee-shop-stage.jpg" alt="Bam performing at a coffee shop venue" loading="lazy" /><figcaption>Fresh hot comedy</figcaption></figure>
+        <figure><img src="photos/joey-for-president-stage.jpg" alt="Bam on stage in a Joey for President shirt" loading="lazy" /><figcaption>Campaigning for laughs</figcaption></figure>
+        <figure><img src="photos/summit-city-suit.jpg" alt="Bam in a suit on stage at Summit City Comedy" loading="lazy" /><figcaption>Suited up at Summit City</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="lightbox"><img src="" alt="" /><p class="lb-cap"></p></div>
+
+  <div class="section-outer" id="offstage">
+    <p class="section-label">Off Stage</p>
+    <div class="offstage-strip">
+        <figure><img src="photos/personal/mom.jpg" alt="Bam's mom" loading="lazy" /><figcaption>Mom</figcaption></figure>
+        <figure><img src="photos/personal/tincaps-mascot.jpg" alt="Bam with the Fort Wayne TinCaps mascot" loading="lazy" /><figcaption>Mascot</figcaption></figure>
+        <figure><img src="photos/personal/toys-r-us-giraffe.jpg" alt="Bam with the Toys R Us giraffe" loading="lazy" /><figcaption>Big Kid</figcaption></figure>
+        <figure><img src="photos/personal/sunflower-ladder.jpg" alt="Bam on a ladder next to giant sunflowers" loading="lazy" /><figcaption>Sunflowers</figcaption></figure>
+        <figure><img src="photos/personal/fantasy-football-plaque.jpg" alt="Bam with his fantasy football championship plaque" loading="lazy" /><figcaption>Champ</figcaption></figure>
+        <figure><img src="photos/personal/mural-selfie.jpg" alt="Bam in front of a mural" loading="lazy" /><figcaption>Fort Wayne</figcaption></figure>
+        <figure><img src="photos/personal/halloween-dad.jpg" alt="Bam on Halloween with his kid" loading="lazy" /><figcaption>Halloween</figcaption></figure>
+        <figure><img src="photos/personal/date-night.jpg" alt="Bam and his wife at the beach" loading="lazy" /><figcaption>Date Night</figcaption></figure>
+        <figure><img src="photos/personal/dog-nap.jpg" alt="Bam napping with the dog" loading="lazy" /><figcaption>Nap Time</figcaption></figure>
+        <figure><img src="photos/personal/christmas-tree.jpg" alt="Bam lifting his kid to top the Christmas tree" loading="lazy" /><figcaption>Christmas</figcaption></figure>
+        <figure><img src="photos/personal/like-father.jpg" alt="Bam and his baby both yawning" loading="lazy" /><figcaption>Like Father</figcaption></figure>
+    </div>
+  </div>
+
   <div class="section-outer" id="contact">
     <p class="section-label">Booking & Contact</p>
     <div class="contact-wrap">
@@ -389,6 +527,26 @@
   <footer>&copy; 2026 Bam Does Comedy. All rights reserved.</footer>
 
   <script>
+    // Photo lightbox
+    (function () {
+      var lb = document.getElementById('lightbox');
+      var lbImg = lb.querySelector('img');
+      var lbCap = lb.querySelector('.lb-cap');
+      document.querySelectorAll('.photo-grid figure, .offstage-strip figure').forEach(function (fig) {
+        fig.addEventListener('click', function () {
+          var img = fig.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbCap.textContent = fig.querySelector('figcaption').textContent;
+          lb.classList.add('open');
+        });
+      });
+      lb.addEventListener('click', function () { lb.classList.remove('open'); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') lb.classList.remove('open');
+      });
+    })();
+
     const BAM_FORMSPREE_ID = "mrpbgder";
     async function submitBamBooking() {
       const name = document.getElementById('bamName').value.trim();
