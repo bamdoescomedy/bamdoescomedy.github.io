@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>November 2026 Shows | Bam Does Comedy</title>
+  <meta name="description" content="Bam Does Comedy — November 2026 show calendar: Summit City, Tipsy Hyena, The Fairfield, Rack & Helen's, and Fort Wayne Comedy Club." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:   #0d0d0d;
+      --offwhite:#f0ece3;
+      --red:     #c0392b;
+      --gray:    #888;
+      --section-pad: 80px 24px;
+    }
+    body {
+      background: var(--black);
+      color: var(--offwhite);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      background: var(--black);
+      z-index: 100;
+    }
+    nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--offwhite);
+    }
+    nav .logo:hover { text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+    nav ul a {
+      color: var(--offwhite);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    nav ul a:hover { color: var(--red); text-decoration: none; }
+    .section-outer { border-bottom: 1px solid #222; padding: var(--section-pad); }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #222;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .cal-head {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-align: center;
+      padding-bottom: 4px;
+    }
+    .cal-day { border: 1px solid #222; padding: 10px 8px; min-height: 96px; }
+    .cal-day.empty { border-color: transparent; }
+    .cal-day.has-show { border-color: var(--red); }
+    .cal-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--offwhite);
+    }
+    .cal-day.has-show .cal-num { color: var(--red); }
+    .cal-show { font-size: 0.72rem; line-height: 1.3; color: var(--offwhite); margin-top: 4px; }
+    .show-list { list-style: none; max-width: 900px; margin: 0 auto; }
+    .show-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #1e1e1e;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .show-list li:last-child { border-bottom: none; }
+    .show-date {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--red);
+      min-width: 120px;
+    }
+    .show-info { flex: 1; padding: 0 20px; }
+    .show-info strong { display: block; font-size: 1rem; }
+    .show-info span { font-size: 0.85rem; color: var(--gray); }
+    .show-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid #333;
+      padding: 4px 10px;
+      color: var(--gray);
+    }
+    footer { text-align: center; padding: 24px 32px 32px; font-size: 0.75rem; color: #444; }
+    @media (max-width: 600px) {
+      nav ul { gap: 16px; }
+      .show-list li { flex-direction: column; align-items: flex-start; }
+      .cal-day { min-height: 64px; padding: 6px 4px; }
+      .cal-show { font-size: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">Bam Does Comedy</a>
+    <ul>
+      <li><a href="index.html#shows">Shows</a></li>
+      <li><a href="index.html#photos">Photos</a></li>
+      <li><a href="index.html#video">Video</a></li>
+      <li><a href="index.html#merch">Merch</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Booking</a></li>
+    </ul>
+  </nav>
+
+  <div class="section-outer">
+    <p class="section-label">November 2026</p>
+    <div class="cal-grid">
+      <div class="cal-head">Sun</div>
+      <div class="cal-head">Mon</div>
+      <div class="cal-head">Tue</div>
+      <div class="cal-head">Wed</div>
+      <div class="cal-head">Thu</div>
+      <div class="cal-head">Fri</div>
+      <div class="cal-head">Sat</div>
+      <div class="cal-day"><div class="cal-num">1</div></div>
+      <div class="cal-day"><div class="cal-num">2</div></div>
+      <div class="cal-day"><div class="cal-num">3</div></div>
+      <div class="cal-day has-show"><div class="cal-num">4</div><div class="cal-show">Summit City · Spot 13</div></div>
+      <div class="cal-day has-show"><div class="cal-num">5</div><div class="cal-show">Tipsy Hyena Mic</div></div>
+      <div class="cal-day has-show"><div class="cal-num">6</div><div class="cal-show">The Fairfield · 8 PM</div><div class="cal-show">Rack &amp; Helen's · 9:30 PM</div></div>
+      <div class="cal-day has-show"><div class="cal-num">7</div><div class="cal-show">FWCC · Phillip Page</div></div>
+      <div class="cal-day"><div class="cal-num">8</div></div>
+      <div class="cal-day"><div class="cal-num">9</div></div>
+      <div class="cal-day"><div class="cal-num">10</div></div>
+      <div class="cal-day"><div class="cal-num">11</div></div>
+      <div class="cal-day"><div class="cal-num">12</div></div>
+      <div class="cal-day"><div class="cal-num">13</div></div>
+      <div class="cal-day has-show"><div class="cal-num">14</div><div class="cal-show">FWCC · Binkley</div></div>
+      <div class="cal-day"><div class="cal-num">15</div></div>
+      <div class="cal-day"><div class="cal-num">16</div></div>
+      <div class="cal-day"><div class="cal-num">17</div></div>
+      <div class="cal-day"><div class="cal-num">18</div></div>
+      <div class="cal-day has-show"><div class="cal-num">19</div><div class="cal-show">Tipsy Hyena Mic</div></div>
+      <div class="cal-day"><div class="cal-num">20</div></div>
+      <div class="cal-day has-show"><div class="cal-num">21</div><div class="cal-show">FWCC · Salty Mom Tour</div></div>
+      <div class="cal-day"><div class="cal-num">22</div></div>
+      <div class="cal-day"><div class="cal-num">23</div></div>
+      <div class="cal-day"><div class="cal-num">24</div></div>
+      <div class="cal-day"><div class="cal-num">25</div></div>
+      <div class="cal-day"><div class="cal-num">26</div></div>
+      <div class="cal-day"><div class="cal-num">27</div></div>
+      <div class="cal-day"><div class="cal-num">28</div></div>
+      <div class="cal-day"><div class="cal-num">29</div></div>
+      <div class="cal-day"><div class="cal-num">30</div></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+      <div class="cal-day empty"></div>
+    </div>
+  </div>
+
+  <div class="section-outer">
+    <p class="section-label">November Shows — Details</p>
+    <ul class="show-list">
+      <li>
+        <span class="show-date">WED NOV 4</span>
+        <div class="show-info">
+          <strong>Summit City Comedy Club — Open Mic</strong>
+          <span>Spot 13 • 4 minutes • 5535 St Joe Rd, Fort Wayne, IN</span>
+        </div>
+        <span class="show-tag">Open Mic</span>
+      </li>
+      <li>
+        <span class="show-date">THU NOV 5</span>
+        <div class="show-info">
+          <strong>Draft Taproom — Tipsy Hyena Open Mic</strong>
+          <span>7:30 PM • 1833 N Wells St, Fort Wayne, IN</span>
+        </div>
+        <span class="show-tag">Open Mic</span>
+      </li>
+      <li>
+        <span class="show-date">FRI NOV 6</span>
+        <div class="show-info">
+          <strong>The Fairfield — Comedy Contest Showcase</strong>
+          <span>Top-3 finalist • 1510 Fairfield Ave, Fort Wayne, IN • Doors 7 PM, Show 8 PM • <a href="https://thefairfieldfw.com/" target="_blank" rel="noopener">thefairfieldfw.com</a></span>
+        </div>
+        <span class="show-tag">Special Event</span>
+      </li>
+      <li>
+        <span class="show-date">FRI NOV 6</span>
+        <div class="show-info">
+          <strong>Rack &amp; Helen's — Bar Show</strong>
+          <span>Monthly bar show • 9:30 PM • New Haven, IN</span>
+        </div>
+        <span class="show-tag">Bar Show</span>
+      </li>
+      <li>
+        <span class="show-date">SAT NOV 7</span>
+        <div class="show-info">
+          <strong>Fort Wayne Comedy Club — House Emcee for Phillip Page</strong>
+          <span>with Ronald BC Harris &amp; Joey Lee • 1324 Minnich Rd, New Haven, IN • <a href="https://www.fortwaynecomedyclub.com/events/142490" target="_blank" rel="noopener">Tickets at fortwaynecomedyclub.com</a></span>
+        </div>
+        <span class="show-tag">House Emcee</span>
+      </li>
+      <li>
+        <span class="show-date">SAT NOV 14</span>
+        <div class="show-info">
+          <strong>Fort Wayne Comedy Club — House Emcee for Joe Binkley</strong>
+          <span>1324 Minnich Rd, New Haven, IN • <a href="https://www.fortwaynecomedyclub.com/shows/385969" target="_blank" rel="noopener">Tickets at fortwaynecomedyclub.com</a></span>
+        </div>
+        <span class="show-tag">House Emcee</span>
+      </li>
+      <li>
+        <span class="show-date">THU NOV 19</span>
+        <div class="show-info">
+          <strong>Draft Taproom — Tipsy Hyena Open Mic</strong>
+          <span>7:30 PM • 1833 N Wells St, Fort Wayne, IN</span>
+        </div>
+        <span class="show-tag">Open Mic</span>
+      </li>
+      <li>
+        <span class="show-date">SAT NOV 21</span>
+        <div class="show-info">
+          <strong>Fort Wayne Comedy Club — House Emcee for The Salty Mom Tour</strong>
+          <span>with Amy Brown &amp; Holly Ballentine • 1324 Minnich Rd, New Haven, IN • <a href="https://www.fortwaynecomedyclub.com/events" target="_blank" rel="noopener">Tickets at fortwaynecomedyclub.com</a></span>
+        </div>
+        <span class="show-tag">House Emcee</span>
+      </li>
+    </ul>
+    <p style="max-width: 900px; margin: 24px auto 0; text-align: center;"><a href="index.html">← Back to Bam Does Comedy</a></p>
+  </div>
+
+  <footer>&copy; 2026 Bam Does Comedy. All rights reserved.</footer>
+
+</body>
+</html>
